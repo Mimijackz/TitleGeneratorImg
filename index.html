@@ -7,6 +7,18 @@ height: 200px;
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
+  function getParam(key){
+        let params;
+        try{
+            params = new URLSearchParams(window.location.search);
+        } catch(e){
+            console.error(e);
+        }
+        if(params.has(key)){
+            return decodeURIComponent(params.get(key));
+        }
+        return "";
+    }
   var title = getParam("title");
   var blur = getParam("blur");
   var font = getParam("font");
