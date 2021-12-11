@@ -5,6 +5,22 @@ width: 200px;
 height: 200px;
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
-  console.log(blur);
+  var title = getParam("title");
+  var blur = getParam("blur");
+  var font = getParam("font");
+  var bold = getParam("bold");
+  var sup = getParam("super");
+  var sub = getParam("sub");
+  var main = getParam("main");
+  $.get('https://prashantmohta.github.io/TitleGenerator.HollowKnight/?title=0&blur=true&font=1&bold=true&').then(function (html) {
+    // Success response
+    var $mainbar = $(html).find('canvas');
+    document.write($mainbar.html());
+    document.getElementByID("image").src = $mainbar.toDataURL();
+}, function () {
+    // Error response
+    document.write('Access denied');
+});
 </script>
