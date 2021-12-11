@@ -16,20 +16,20 @@ body{
    $(document).ready(loadContent);
    function loadContent()
    {
-      var QueryURL = “https://" + ExternalURL;
+      var QueryURL = "https://" + ExternalURL;
       $.getJSON(QueryURL, function(data){
-         if (data && data != null && typeof data == “object” && data.contents && data.contents != null && typeof data.contents == “string”)
+         if (data && data != null && typeof data == "object" && data.contents && data.contents != null && typeof data.contents == "string")
          {
             //data = data.contents.replace(/<script[^>]*>[sS]*?</script>/gi, ”);
             if (data.length > 0)
             {
-               if (ContentLocationInDOM && ContentLocationInDOM != null && ContentLocationInDOM != “null”)
+               if (ContentLocationInDOM && ContentLocationInDOM != null && ContentLocationInDOM != "null")
                {
-                  $(‘#queryResultContainer’).html($(ContentLocationInDOM, data));
+                  $("#queryResultContainer").html($(ContentLocationInDOM, data));
                }
                else
                {
-                  $(‘#queryResultContainer’).html(data);
+                  $("#queryResultContainer").html(data);
                }
             }
          }
