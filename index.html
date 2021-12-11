@@ -10,12 +10,25 @@ body{
 </style>
 <script src=jquery-1.9.1.min.js></script>
 <script type=”text/javascript”>
-   $.get('https://prashantmohta.github.io/TitleGenerator.HollowKnight/?title=0&blur=true&font=1&bold=true&super=HOLLOW%20KNIGHT%20MODDING&main=LOOK%20WHAT%20I%20MADE&').then(function (html) {
-    // Success response
-    var canvas = $(html).find('canvas');
-    console.log(canvas.ToDataURL());
-}, function () {
-    // Error response
-    document.write('Access denied');
-});
+   function httpGet(theUrl)
+{
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            return xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET", theUrl, false );
+    xmlhttp.send();    
+}
+console.log(httpGet("https://prashantmohta.github.io/TitleGenerator.HollowKnight/?title=0&blur=true&font=1&bold=true&main=AX2U&sub=Start%20streaming"));
 </script>
